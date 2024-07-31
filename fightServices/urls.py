@@ -26,5 +26,7 @@ router.register('reservations',views.ReservationViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('flightservices/',include(router.urls))
+    path('flightservices/',include(router.urls)),
+    path('flightservices/findfligths/',views.find_fligths),
+    path('flightservices/saveReservations/',views.save_reservation)
 ]

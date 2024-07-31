@@ -9,6 +9,9 @@ class Flight(models.Model):
     dateOfDeparture = models.DateField()
     estimateTimeOfDeparture = models.TimeField()
 
+    def __str__(self):
+        return self.fightNumber
+
 class Passanger(models.Model):
     firstName = models.CharField(max_length=20)
     lastName = models.CharField(max_length=20)
@@ -16,6 +19,9 @@ class Passanger(models.Model):
     email = models.CharField(max_length=20)
     phone = models.CharField(max_length=10)
 
+    def __str__(self):
+        return self.firstName+self.lastName
+
 class Reservation(models.Model):
-    flight = models.OneToOneField(Flight,on_delete=models.CASCADE)
+    flight = models.ForeignKey(Flight,on_delete=models.CASCADE)
     passanger = models.OneToOneField(Passanger,on_delete=models.CASCADE)
